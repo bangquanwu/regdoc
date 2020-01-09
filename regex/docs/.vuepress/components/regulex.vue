@@ -4,6 +4,7 @@
 </template>
 <style scoped>
 .regulex{
+  overflow-x: auto;
   /* text-align:center; */
 }
 </style>
@@ -20,12 +21,16 @@
     },
     props: {
       reg: [String],
-
     },
     methods: {
       visual(){
         let ret = parse(this.reg)
         visualize(ret, [], this.paper)
+      }
+    },
+    watch: {
+      reg(){
+        this.visual()
       }
     },
     mounted(){
